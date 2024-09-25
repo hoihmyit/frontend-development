@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - JavaScript</title>
+  </head>
+  <body>
+    <h2>DOM Selectors</h2>
+
+    <p id="demo"></p>
+    <script>
+      document.getElementById("demo").innerHTML = 5 + 6;
+    </script>
+
+    <div id="hello">Hello World!</div>
+    <div>Hi there</div>
+    <script>
+      console.log(document.getElementById("hello"));
+    </script>
+
+    <ul>
+      <li class="apple">Apple</li>
+      <li class="banana">Banana</li>
+      <li class="green">Orange</li>
+      <li class="green">Watermelon</li>
+    </ul>
+
+    <div>
+      <span id="one" name="First">First span</span>
+      <span id="two" name="Second">Second span</span>
+    </div>
+
+    <script>
+      // Access DOM elements
+      let apple = document.getElementsByClassName("apple");
+      console.log(apple);
+
+      let li = document.getElementsByTagName("li");
+      console.log(li);
+
+      let banana = document.querySelectorAll(".green");
+      console.log(banana);
+
+      // DOM manipulation
+      console.dir(document); //#document
+      console.dir(document.documentURI); //http://127.0.0.1:5500/js/index.html
+
+      const div = document.createElement("div");
+      console.log(div); //<div></div>
+
+      const body = document.body;
+      div.innerText = "JavaScript";
+      body.append(div); //JavaScript
+      // body.removeChild(div);
+      // div.remove();
+
+      // Modifyng styles and attributes
+      const divStyle = document.querySelector("div");
+      const spanOne = document.getElementById("one");
+      const spanTwo = document.getElementById("two");
+
+      console.log(spanOne.getAttribute("name")); //First
+      console.log(spanTwo.getAttribute("name")); //Second
+      console.log(spanOne.removeAttribute("name")); //undefined
+      // rename the id attribute
+      spanOne.setAttribute("id", "three");
+      spanOne.id = "rename id";
+
+      spanOne.style.color = "red";
+      spanOne.style.backgroundColor = "black";
+    </script>
+  </body>
+</html>

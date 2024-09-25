@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Load Content Dynamically - JavaScript</title>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <ul id="userList"></ul>
+
+    <script>
+      const userList = document.querySelector("#userList");
+      const xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE) {
+          if (this.status === 200) {
+            const userData = JSON.parse(xhr.responseText);
+
+            userData.forEach((user) => {
+              const newUser = document.createElement("li");
+              const newUserText = document.createTextNode(user.name);
+
+              newUser.appendChild(newUserText);
+              userList.appendChild(newUser);
+            });
+          } else {
+            console.log("Error!");
+          }
+        }
+      };
+
+      xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+      xhr.send();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Document</title>
+  </head>
+  <style>
+    /* Pseudo Element selectors */
+    p::before {
+      content: "";
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: none;
+      border-radius: 50%;
+    }
+    p::after {
+      content: "New message";
+      color: #000;
+      opacity: 0.5;
+      background-color: gray;
+      border: none;
+      border-radius: 50px;
+      margin-left: 9px;
+      padding: 2px;
+    }
+
+    #new::first-line {
+      color: red;
+      font-size: 20px;
+    }
+
+    /* Attribute selector */
+    a[href^="https"] {
+      color: white;
+      background-color: black;
+    }
+    input[type="email"] {
+      background-color: yellow;
+    }
+  </style>
+  <body>
+    <div>
+      <a href="#">Home</a>
+      <a href="https://www.google.com/">Google</a>
+      <a href="#">Home</a>
+
+      <input type="text" />
+      <input type="email" />
+      <input type="phone" />
+      <input type="password" />
+    </div>
+
+    <div>
+      <p id="c">Lorem Ipsum</p>
+      <p id="new">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+      </p>
+    </div>
+  </body>
+</html>

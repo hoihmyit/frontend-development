@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create and Remove DOM Elements - JavaScript</title>
+  </head>
+  <body>
+    <div class="div">
+      <h1>My Favorite Fruits</h1>
+      <ul id="fruitList">
+        <li>Apple</li>
+        <li>Grape</li>
+      </ul>
+      <button id="addButton">Add Fruit</button>
+      <button id="removeLastButton">Remove Last Fruit</button>
+      <button id="removeGrapeButton">Remove Grape Fruit</button>
+    </div>
+    <script>
+      const addButton = document.querySelector("#addButton");
+      const removeLastButton = document.querySelector("#removeLastButton");
+      const removeGrapeButton = document.querySelector("#removeGrapeButton");
+      const fruitList = document.querySelector("#fruitList");
+
+      addButton.addEventListener("click", () => {
+        const newListItem = document.createElement("li");
+        const newListItemText = document.createTextNode("Banana");
+        newListItem.append(newListItemText);
+
+        fruitList.append(newListItem);
+      });
+
+      removeLastButton.addEventListener("click", () => {
+        const lastItem = fruitList.removeChild(fruitList.lastElementChild);
+        console.log(lastItem);
+      });
+
+      removeGrapeButton.addEventListener("click", () => {
+        const grape = document.querySelector("li:nth-child(2)");
+        console.log(grape);
+        fruitList.removeChild(grape);
+      });
+    </script>
+  </body>
+</html>

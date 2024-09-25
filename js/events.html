@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events - JavaScript</title>
+  </head>
+  <style>
+    .div {
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+  <body>
+    <div class="div">
+      <button onclick="document.getElementById('datetime').innerHTML = Date()">
+        The time is?
+      </button>
+      <p id="datetime"></p>
+    </div>
+
+    <div class="div">
+      <button id="btn">Click me</button>
+    </div>
+
+    <script>
+      const button = document.querySelector("#btn");
+      button.addEventListener("click", () => {
+        alert("Hello World!");
+      });
+    </script>
+
+    <div class="div">
+      <input type="text" id="searchBox" />
+    </div>
+    <script>
+      const searchBox = document.querySelector("#searchBox");
+      searchBox.addEventListener("keyup", () => {
+        console.log("event triggered");
+        console.log(searchBox.value);
+      });
+    </script>
+
+    <div class="div">
+      <h1>ToDo List</h1>
+      <ul>
+        <li>Clean house</li>
+        <li>Buy groceries</li>
+        <li>Study JavaScript</li>
+      </ul>
+    </div>
+    <script>
+      const listItems = document.querySelectorAll("li");
+      listItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          item.classList.toggle("completed");
+          //   item.style.textDecoration = "line-through";
+        });
+      });
+    </script>
+  </body>
+</html>
